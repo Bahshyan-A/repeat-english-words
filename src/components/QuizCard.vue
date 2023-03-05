@@ -21,10 +21,20 @@
       type="text"
       placeholder="Ваш ответ"
     />
-    <n-button @click="showHint" hoverable="" quaternary type="success">{{
+    <n-button @click="showHint" class="quiz-card__hint" quaternary type="success">{{
       hintContent
     }}</n-button>
     <div class="quiz-card__bottom">
+        <transition name="fade">
+        <template v-if="showResultLabel">
+          <n-alert
+            class="quiz-card__info"
+            :title="alertData.title"
+            :type="alertData.type"
+          >
+          </n-alert>
+        </template>
+      </transition>
       <n-button
         class="quiz-card__btn"
         strong
@@ -34,18 +44,6 @@
         @click="checkAnswer"
         >Проверить</n-button
       >
-
-      <transition name="fade">
-        <template v-if="showResultLabel">
-          <n-alert
-            class="quiz-card__info"
-            :closable="true"
-            :title="alertData.title"
-            :type="alertData.type"
-          >
-          </n-alert>
-        </template>
-      </transition>
       <n-button
         class="quiz-card__btn"
         strong
@@ -144,6 +142,7 @@ const hintContent = computed(() => {
 
   &__bottom {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 5px;
@@ -162,6 +161,10 @@ const hintContent = computed(() => {
   &__description {
     color: #1fb665;
     font-size: 16px;
+  }
+
+  &__hint{
+    margin: 10px;
   }
 
   &__input {
