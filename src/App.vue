@@ -1,5 +1,4 @@
 <template>
-  <h1>Repeat English</h1>
   <quiz-card v-if="card" @update="updateCard" :card="card"/>
 </template>
 
