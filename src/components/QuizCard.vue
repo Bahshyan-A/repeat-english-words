@@ -135,6 +135,7 @@ const hintContent = computed(() => {
   border-radius: 8px;
   border: 1px solid #62e49f;
   flex-direction: column;
+  text-align: center;
 
   @media (max-width: 760px) {
     width: 100%;
