@@ -9,7 +9,7 @@
       <div>
         <span class="quiz-card__description">Напиши перевод к слову:</span>
         <br />
-        <span class="quiz-card__word">{{ card.eng }}</span>
+        <span class="quiz-card__word">{{ card.eng }}{{ showCorrectAnswer? " - " + card.rus : "" }}</span>
       </div>
     </template>
 
@@ -123,7 +123,7 @@ const alertData = computed(() => {
 
 const hintContent = computed(() => {
   if (props.card) {
-    return !showCorrectAnswer.value ? "Показать ответ" : props.card.rus;
+    return !showCorrectAnswer.value ? "Показать ответ" : 'Скрыть ответ';
   }
 });
 </script>
@@ -175,6 +175,10 @@ const hintContent = computed(() => {
     align-items: center;
     justify-content: center;
     font-size: 25px;
+  }
+
+  &__btn {
+    font-size: 20px;
   }
 }
 
