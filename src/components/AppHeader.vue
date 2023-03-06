@@ -6,6 +6,7 @@
                 <ul v-if="!isDesktop" class="header__nav-list">
                     <li class="header__nav-list-item"><a href="#">О проекте</a></li>
                     <li class="header__nav-list-item"><a href="#">Новые слова</a></li>
+                    <li class="header__nav-list-item"><a href="#">Словарь</a></li>
                     <li class="header__nav-list-item"><a href="#">Избранное</a></li>
                     <li class="header__nav-list-item"><a href="#">Статистика</a></li>
                 </ul>
