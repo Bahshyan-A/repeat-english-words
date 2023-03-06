@@ -42,8 +42,8 @@ const isDesktop = computed(() => {
 
     &__logo{
         font-weight: 800;
-        color: #62e49f;
-        background: #fff;
+        color: #fff;
+        background: #2080f0;
         padding: 10px;
         border-radius: 8px;
         font-size: 22px;
