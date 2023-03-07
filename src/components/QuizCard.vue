@@ -1,15 +1,18 @@
 <template>
   <n-card
     content-style="padding: 10px;"
-    header-style="padding: 10px; background-color: #62e49f; border-radius:  8px 8px 0 0"
+    :header-style="cardHeaderStyles"
     size="huge"
     class="quiz-card"
+    :class="cardStyles"
   >
     <template #header>
       <div>
         <span class="quiz-card__description">Напиши перевод к слову:</span>
         <br />
-        <span class="quiz-card__word">{{ card.eng }}{{ showCorrectAnswer? " - " + card.rus : "" }}</span>
+        <span class="quiz-card__word"
+          >{{ card.eng }}{{ showCorrectAnswer ? " - " + card.rus : "" }}</span
+        >
       </div>
     </template>
 
@@ -21,20 +24,14 @@
       type="text"
       placeholder="Ваш ответ"
     />
-    <n-button @click="showHint" class="quiz-card__hint" quaternary type="success">{{
-      hintContent
-    }}</n-button>
+    <n-button
+      @click="showHint"
+      class="quiz-card__hint"
+      quaternary
+      type="success"
+      >{{ hintContent }}</n-button
+    >
     <div class="quiz-card__bottom">
-        <transition name="fade">
-        <template v-if="showResultLabel">
-          <n-alert
-            class="quiz-card__info"
-            :title="alertData.title"
-            :type="alertData.type"
-          >
-          </n-alert>
-        </template>
-      </transition>
       <n-button
         class="quiz-card__btn"
         strong
@@ -123,7 +120,23 @@ const alertData = computed(() => {
 
 const hintContent = computed(() => {
   if (props.card) {
-    return !showCorrectAnswer.value ? "Показать ответ" : 'Скрыть ответ';
+    return !showCorrectAnswer.value ? "Показать ответ" : "Скрыть ответ";
+  }
+});
+
+const cardStyles = computed(() => {
+  if (showResultLabel.value) {
+    return isCorrect.value ? "quiz-card--success" : "quiz-card--wrong";
+  } else {
+    return "";
+  }
+});
+
+const cardHeaderStyles = computed(() => {
+  if (showResultLabel.value) {
+    return isCorrect.value ? "background: #62e49f" : "background: #e46262";
+  } else {
+    return "background:rgb(179, 213, 252)";
   }
 });
 </script>
@@ -133,8 +146,33 @@ const hintContent = computed(() => {
   display: flex;
   width: 400px;
   border-radius: 8px;
-  border: 1px solid #62e49f;
+  border: 3px solid;
+  border-color: rgb(179, 213, 252);
+  box-shadow: 4px 4px 12px #0000000e;
   flex-direction: column;
+  text-align: center;
+
+  &--success {
+    border-color: #62e49f;
+
+    .quiz-card__word {
+      color: #0e8345;
+    }
+    .quiz-card__description {
+      color: #14ad5c;
+    }
+  }
+
+  &--wrong {
+    border-color: #e46262;
+
+    .quiz-card__word {
+      color: #972626;
+    }
+    .quiz-card__description {
+      color: #9e1919;
+    }
+  }
 
   @media (max-width: 760px) {
     width: 100%;
@@ -156,14 +194,14 @@ const hintContent = computed(() => {
   &__word {
     font-weight: 500;
     font-size: 30px;
-    color: #0a8041;
+    color: rgb(28, 92, 165);
   }
   &__description {
-    color: #1fb665;
+    color: rgb(28, 115, 214);
     font-size: 16px;
   }
 
-  &__hint{
+  &__hint {
     margin: 10px;
   }
 
