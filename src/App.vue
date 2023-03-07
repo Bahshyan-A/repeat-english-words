@@ -1,7 +1,7 @@
 <template>
   <app-header />
   <div class="container card-container" v-if="card">
-    <quiz-card :card="card"/>
+    <quiz-card :card="card" @update="updateCard"/>
   </div>
 </template>
 

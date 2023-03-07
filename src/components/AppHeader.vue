@@ -1,7 +1,7 @@
 <template>
     <header class="header">
         <div class="header__container">
-            <div class="header__logo">repeat-english</div>
+            <div class="header__logo">🌎 Repeat-english</div>
             <nav class="header__nav">
                 <ul v-if="!isDesktop" class="header__nav-list">
                     <li class="header__nav-list-item"><a href="#">О проекте</a></li>
@@ -25,7 +25,8 @@ const isDesktop = computed(() => {
 <style lang="scss" scoped>
 
 .header {
-    background-color: rgba(32, 128, 240, 0.16);
+    background-color: #fff;
+    box-shadow: 0px 4px 12px #0000000e;
     padding: 0 10px;
     height: 80px;
     display: flex;
@@ -43,8 +44,7 @@ const isDesktop = computed(() => {
 
     &__logo{
         font-weight: 800;
-        color: #fff;
-        background: #2080f0;
+        color: #2080f0;
         padding: 10px;
         border-radius: 8px;
         font-size: 22px;
