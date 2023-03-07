@@ -24,13 +24,6 @@
       type="text"
       placeholder="Ваш ответ"
     />
-    <n-button
-      @click="showHint"
-      class="quiz-card__hint"
-      quaternary
-      type="success"
-      >{{ hintContent }}</n-button
-    >
     <div class="quiz-card__bottom">
       <n-button
         class="quiz-card__btn"
@@ -51,6 +44,13 @@
         >Следующее слово</n-button
       >
     </div>
+    <n-button
+      @click="showHint"
+      class="quiz-card__hint"
+      quaternary
+      type="success"
+      >{{ hintContent }}</n-button
+    >
   </n-card>
 </template>
 
@@ -120,7 +120,7 @@ const alertData = computed(() => {
 
 const hintContent = computed(() => {
   if (props.card) {
-    return !showCorrectAnswer.value ? "Показать ответ" : "Скрыть ответ";
+    return !showCorrectAnswer.value ? "🙈 Показать ответ" : "🙉 Скрыть ответ";
   }
 });
 
