@@ -4,8 +4,8 @@
             <div class="header__logo">🌎 Repeat-english</div>
             <nav class="header__nav">
                 <ul v-if="!isDesktop" class="header__nav-list">
-                    <li class="header__nav-list-item"><a href="#">О проекте</a></li>
-                    <li class="header__nav-list-item"><a href="#">Новые слова</a></li>
+                    <li class="header__nav-list-item"><router-link to="/">О проекте</router-link></li>
+                    <li class="header__nav-list-item"><router-link to="/quiz">Новые слова</router-link></li>
                     <li class="header__nav-list-item"><a href="#">Словарь</a></li>
                     <li class="header__nav-list-item"><a href="#">Избранное</a></li>
                     <li class="header__nav-list-item"><a href="#">Статистика</a></li>
@@ -44,7 +44,7 @@ const isDesktop = computed(() => {
 
     &__logo{
         font-weight: 800;
-        color: #2080f0;
+        color: #000;
         padding: 10px;
         border-radius: 8px;
         font-size: 22px;
@@ -60,10 +60,10 @@ const isDesktop = computed(() => {
                 text-decoration: none;
                 font-weight: 500;
                 font-size: 19px;
-                color: #2080f0;
+                color: $blue;
 
                 &:hover, &:focus {
-                    color: #5a9eeb;
+                    color: $blue--light;
                 }
             }
         }

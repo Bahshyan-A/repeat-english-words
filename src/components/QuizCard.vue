@@ -109,15 +109,6 @@ const checkAnswer = () => {
   }
 };
 
-const alertData = computed(() => {
-  const title = `${isCorrect.value ? "Абсолютно верно" : "Неправильный ответ"}`;
-  const type: "success" | "error" = isCorrect.value ? "success" : "error";
-  return {
-    title,
-    type,
-  };
-});
-
 const hintContent = computed(() => {
   if (props.card) {
     return !showCorrectAnswer.value ? "🙈 Показать ответ" : "🙉 Скрыть ответ";
@@ -147,30 +138,30 @@ const cardHeaderStyles = computed(() => {
   width: 400px;
   border-radius: 8px;
   border: 3px solid;
-  border-color: rgb(179, 213, 252);
+  border-color:$blue--light;
   box-shadow: 4px 4px 12px #0000000e;
   flex-direction: column;
   text-align: center;
 
   &--success {
-    border-color: #62e49f;
+    border-color: $green--light;
 
     .quiz-card__word {
-      color: #0e8345;
+      color: $green--dark;
     }
     .quiz-card__description {
-      color: #14ad5c;
+      color: $green;
     }
   }
 
   &--wrong {
-    border-color: #e46262;
+    border-color: $red--light;
 
     .quiz-card__word {
-      color: #972626;
+      color: $red--dark;
     }
     .quiz-card__description {
-      color: #9e1919;
+      color: $red;
     }
   }
 
@@ -194,10 +185,10 @@ const cardHeaderStyles = computed(() => {
   &__word {
     font-weight: 500;
     font-size: 30px;
-    color: rgb(28, 92, 165);
+    color: $blue--dark;
   }
   &__description {
-    color: rgb(28, 115, 214);
+    color:  $blue;
     font-size: 16px;
   }
 
