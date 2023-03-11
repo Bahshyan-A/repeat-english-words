@@ -9,6 +9,7 @@ export default defineConfig({
       scss: {
         additionalData: `
           @import "./src/styles/globals.scss";
+          @import "./src/styles/base.scss";
         `,
       },
     },
