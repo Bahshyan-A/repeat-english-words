@@ -1,0 +1,17 @@
+.container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-bg {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-top: 25px;
+    padding: 20px;
+    box-shadow: 4px 4px 12px #0000000e;
+}

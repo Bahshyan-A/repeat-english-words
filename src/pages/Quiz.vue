@@ -24,14 +24,6 @@
   
   <style scoped lang="scss">
   
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    flex-direction: column;
-  }
-  
   .card-container {
     margin-top: 45px;
     padding: 10px;
